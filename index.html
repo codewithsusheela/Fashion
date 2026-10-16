@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luxe Archive — Discover authentic luxury, rare finds and limited-edition beauty and fashion.">
+    <title>Luxe Archive | Authentic Luxury & Limited Editions</title>
+
+    <!-- Elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- We will create this CSS file next -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="announcement-bar">
+            DISCOVER RARE FINDS · CELEBRATE TIMELESS LUXURY
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-crown"></i>
+                <span>LUXE ARCHIVE</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#shop" aria-label="Search products" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="login.html" aria-label="My account" title="Account">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="wishlist.html" aria-label="Wishlist" title="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="count">0</span>
+                </a>
+                <a href="cart.html" aria-label="Shopping cart" title="Shopping cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">EXCLUSIVE & AUTHENTIC</span>
+
+                <h1>Authentic Luxury.<br>Limited Editions.</h1>
+
+                <p>
+                    Rare finds. Iconic brands. Timeless beauty.
+                    Discover pieces worth collecting.
+                </p>
+
+                <a href="#shop" class="btn btn-primary">
+                    Explore Collection
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <div class="hero-features">
+                    <span><i class="fa-solid fa-gem"></i> Curated Finds</span>
+                    <span><i class="fa-solid fa-star"></i> Timeless Style</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1000&q=85"
+                    alt="Elegant luxury perfume display"
+                >
+                <div class="hero-image-label">
+                    <span>THE ART OF LUXURY</span>
+                    <strong>Beauty in Every Detail</strong>
+                </div>
+            </div>
+
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+        </section>
+
+        <!-- ================= TRUST STRIP ================= -->
+        <section class="trust-strip">
+            <div class="trust-item">
+                <i class="fa-solid fa-gem"></i>
+                <span>Curated Collections</span>
+            </div>
+
+            <div class="trust-item">
+                <i class="fa-solid fa-box-open"></i>
+                <span>Careful Packaging</span>
+            </div>
+
+            <div class="trust-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Transparent Product Details</span>
+            </div>
+
+            <div class="trust-item">
+                <i class="fa-solid fa-heart"></i>
+                <span>Luxury Worth Discovering</span>
+            </div>
+        </section>
+
+        <!-- ================= CATEGORIES ================= -->
+        <section class="categories-section section-padding" id="categories">
+            <div class="section-heading">
+                <span class="eyebrow">EXPLORE THE ARCHIVE</span>
+                <h2>Shop by Category</h2>
+                <p>Discover something extraordinary in every collection.</p>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="category.html?category=cosmetics" class="category-card">
+                    <div class="category-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85"
+                            alt="Luxury cosmetics and makeup"
+                            loading="lazy"
+                        >
+                        <span class="category-number">01</span>
+                    </div>
+                    <div class="category-info">
+                        <div>
+                            <h3>Cosmetics</h3>
+                            <p>Beauty in every detail</p>
+                        </div>
+                        <span class="category-arrow">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="category.html?category=handbags" class="category-card">
+                    <div class="category-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85"
+                            alt="Elegant designer handbag"
+                            loading="lazy"
+                        >
+                        <span class="category-number">02</span>
+                    </div>
+                    <div class="category-info">
+                        <div>
+                            <h3>Handbags</h3>
+                            <p>Icons to keep forever</p>
+                        </div>
+                        <span class="category-arrow">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="category.html?category=heels" class="category-card">
+                    <div class="category-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85"
+                            alt="Elegant women's high heels"
+                            loading="lazy"
+                        >
+                        <span class="category-number">03</span>
+                    </div>
+                    <div class="category-info">
+                        <div>
+                            <h3>Women's Heels</h3>
+                            <p>Step into elegance</p>
+                        </div>
+                        <span class="category-arrow">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="category.html?category=perfumes" class="category-card">
+                    <div class="category-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85"
+                            alt="Luxury fragrance bottle"
+                            loading="lazy"
+                        >
+                        <span class="category-number">04</span>
+                    </div>
+                    <div class="category-info">
+                        <div>
+                            <h3>Perfumes</h3>
+                            <p>Scents that leave a memory</p>
+                        </div>
+                        <span class="category-arrow">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ================= FEATURED COLLECTION ================= -->
+        <section class="featured-section section-padding" id="shop">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <span class="eyebrow">RARE. ICONIC. TIMELESS.</span>
+                    <h2>Featured Collection</h2>
+                    <p>Special finds selected for the discerning collector.</p>
+                </div>
+
+                <a href="shop.html" class="text-link">
+                    View All Products
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85"
+                            alt="Red lipstick cosmetic"
+                            loading="lazy"
+                        >
+                        <span class="product-badge">Featured</span>
+                        <button class="wishlist-btn" aria-label="Add lipstick to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="product.html?id=1" class="quick-view">View Product</a>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">COSMETICS</span>
+                        <h3><a href="product.html?id=1">Signature Rouge Lipstick</a></h3>
+                        <div class="product-rating">
+                            <span>★★★★★</span>
+                            <small>Sample rating</small>
+                        </div>
+                        <div class="product-price">₹4,500</div>
+                        <button class="btn btn-outline add-to-cart" data-product-id="1">
+                            <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85"
+                            alt="Classic structured handbag"
+                            loading="lazy"
+                        >
+                        <span class="product-badge gold-badge">Collector's Pick</span>
+                        <button class="wishlist-btn" aria-label="Add handbag to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="product.html?id=2" class="quick-view">View Product</a>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">HANDBAGS</span>
+                        <h3><a href="product.html?id=2">Classic Structured Bag</a></h3>
+                        <div class="product-rating">
+                            <span>★★★★★</span>
+                            <small>Sample rating</small>
+                        </div>
+                        <div class="product-price">₹28,000</div>
+                        <button class="btn btn-outline add-to-cart" data-product-id="2">
+                            <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85"
+                            alt="Elegant women's statement heels"
+                            loading="lazy"
+                        >
+                        <span class="product-badge">New Arrival</span>
+                        <button class="wishlist-btn" aria-label="Add heels to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="product.html?id=3" class="quick-view">View Product</a>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">WOMEN'S HEELS</span>
+                        <h3><a href="product.html?id=3">Rose Gold Evening Heels</a></h3>
+                        <div class="product-rating">
+                            <span>★★★★★</span>
+                            <small>Sample rating</small>
+                        </div>
+                        <div class="product-price">₹12,500</div>
+                        <button class="btn btn-outline add-to-cart" data-product-id="3">
+                            <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85"
+                            alt="Elegant fragrance bottle"
+                            loading="lazy"
+                        >
+                        <span class="product-badge gold-badge">Editor's Choice</span>
+                        <button class="wishlist-btn" aria-label="Add perfume to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="product.html?id=4" class="quick-view">View Product</a>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">PERFUMES</span>
+                        <h3><a href="product.html?id=4">Golden Amber Fragrance</a></h3>
+                        <div class="product-rating">
+                            <span>★★★★★</span>
+                            <small>Sample rating</small>
+                        </div>
+                        <div class="product-price">₹9,800</div>
+                        <button class="btn btn-outline add-to-cart" data-product-id="4">
+                            <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= BRAND SECTION ================= -->
+        <section class="brands-section section-padding" id="brands">
+            <div class="section-heading">
+                <span class="eyebrow">THE NAMES WE ADMIRE</span>
+                <h2>Discover the Brands</h2>
+                <p>Explore luxury labels and their distinctive worlds.</p>
+            </div>
+
+            <div class="brands-grid">
+                <a href="shop.html?brand=Chanel" class="brand-name">CHANEL</a>
+                <a href="shop.html?brand=Dior" class="brand-name">DIOR</a>
+                <a href="shop.html?brand=Gucci" class="brand-name">GUCCI</a>
+                <a href="shop.html?brand=Prada" class="brand-name">PRADA</a>
+                <a href="shop.html?brand=YSL" class="brand-name">SAINT LAURENT</a>
+            </div>
+        </section>
+
+        <!-- ================= EDITORIAL BANNER ================= -->
+        <section class="editorial-section section-padding" id="about">
+            <div class="editorial-image">
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+                    alt="Luxury fashion editorial"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="editorial-content">
+                <span class="eyebrow">MORE THAN A MARKETPLACE</span>
+                <h2>Luxury Is a Feeling.<br>Discover Yours.</h2>
+                <p>
+                    Welcome to a thoughtfully curated world of beauty,
+                    iconic accessories and exceptional finds. Explore
+                    the pieces that make your personal style unforgettable.
+                </p>
+                <a href="#shop" class="btn btn-primary">
+                    Discover the Archive
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= NEWSLETTER ================= -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <span class="eyebrow">A NOTE FROM THE ARCHIVE</span>
+                <h2>Stay in the World of Luxury</h2>
+                <p>Receive collection updates, new arrivals and editorial highlights.</p>
+
+                <form class="newsletter-form" id="newsletterForm">
+                    <label class="visually-hidden" for="newsletterEmail">Email address</label>
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Enter your email address"
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+
+                <p class="form-message" id="newsletterMessage" aria-live="polite"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <a href="#home" class="logo footer-logo">
+                    <i class="fa-solid fa-crown"></i>
+                    <span>LUXE ARCHIVE</span>
+                </a>
+                <p>
+                    A curated destination for luxury beauty,
+                    iconic accessories and exceptional finds.
+                </p>
+
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="#home">Home</a>
+                <a href="#shop">Shop All</a>
+                <a href="#categories">Categories</a>
+                <a href="#brands">Brands</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <a href="contact.html">Contact Us</a>
+                <a href="shipping.html">Shipping Information</a>
+                <a href="returns.html">Returns & Exchanges</a>
+                <a href="faq.html">Frequently Asked Questions</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Your Account</h3>
+                <a href="login.html">Sign In</a>
+                <a href="register.html">Create Account</a>
+                <a href="wishlist.html">My Wishlist</a>
+                <a href="orders.html">Order History</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2026</span> Luxe Archive. All rights reserved.</p>
+            <p>Authentic Luxury · Limited Editions · Timeless Style</p>
+        </div>
+    </footer>
+
+    <!-- We will create this JavaScript file next -->
+    <script src="script.js"></script>
+
+</body>
+</html>
