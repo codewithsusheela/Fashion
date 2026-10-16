@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product Details | Rosévelle</title>
+  <meta name="description" content="Explore exceptional luxury and collectible finds at Rosévelle.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --rv-cream: #faf7f2;
+      --rv-white: #fffdfb;
+      --rv-rose: #b88778;
+      --rv-dark-rose: #906456;
+      --rv-ink: #302923;
+      --rv-muted: #82766e;
+      --rv-border: #e8ded5;
+      --rv-green: #58745b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--rv-cream);
+      color: var(--rv-ink);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .rv-header {
+      background: var(--rv-white);
+      border-bottom: 1px solid var(--rv-border);
+    }
+
+    .rv-topline {
+      padding: 9px 16px;
+      text-align: center;
+      background: #efe3dc;
+      color: #674d43;
+      font-size: 11px;
+      letter-spacing: 1.4px;
+    }
+
+    .rv-header-main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 23px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .rv-logo {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(24px, 4vw, 35px);
+      letter-spacing: 2px;
+      color: var(--rv-dark-rose);
+      white-space: nowrap;
+    }
+
+    .rv-nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .rv-nav a:hover,
+    .rv-breadcrumb a:hover { color: var(--rv-rose); }
+
+    .rv-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .rv-icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .rv-count {
+      display: inline-grid;
+      place-items: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 50%;
+      background: #ead8cf;
+      font-size: 11px;
+    }
+
+    .rv-menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--rv-ink);
+      font-size: 22px;
+    }
+
+    .rv-main {
+      max-width: 1190px;
+      margin: auto;
+      padding: 30px 5% 75px;
+    }
+
+    .rv-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      color: var(--rv-muted);
+      font-size: 12px;
+    }
+
+    .rv-breadcrumb span { color: var(--rv-rose); }
+
+    .rv-product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: clamp(35px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .rv-gallery-main {
+      position: relative;
+      overflow: hidden;
+      background: #eee6dd;
+      aspect-ratio: 4 / 4.5;
+    }
+
+    .rv-gallery-main img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity .2s ease;
+    }
+
+    .rv-image-label {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      padding: 8px 12px;
+      background: rgba(255,253,251,.92);
+      color: var(--rv-dark-rose);
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .rv-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .rv-thumb {
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid transparent;
+      background: #eee6dd;
+      aspect-ratio: 1;
+    }
+
+    .rv-thumb.active { border: 2px solid var(--rv-rose); }
+
+    .rv-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .rv-product-info { padding-top: 6px; }
+
+    .rv-eyebrow {
+      color: var(--rv-dark-rose);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .rv-product-title {
+      margin: 14px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 500;
+      line-height: 1.18;
+    }
+
+    .rv-subtitle {
+      margin: 0;
+      color: var(--rv-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .rv-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0 10px;
+    }
+
+    .rv-price {
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .rv-old-price {
+      color: #998d85;
+      font-size: 15px;
+      text-decoration: line-through;
+    }
+
+    .rv-condition {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 7px 10px;
+      background: #e8eee4;
+      color: #49654b;
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+
+    .rv-divider {
+      height: 1px;
+      margin: 25px 0;
+      background: var(--rv-border);
+    }
+
+    .rv-section-title {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .rv-description {
+      color: #6f655e;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .rv-detail-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin: 18px 0 0;
+    }
+
+    .rv-detail {
+      padding: 13px;
+      border: 1px solid var(--rv-border);
+      background: rgba(255,253,251,.65);
+    }
+
+    .rv-detail strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .rv-detail span {
+      color: var(--rv-muted);
+      font-size: 12px;
+    }
+
+    .rv-purchase-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .rv-quantity {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--rv-border);
+      background: var(--rv-white);
+    }
+
+    .rv-quantity button {
+      width: 35px;
+      height: 49px;
+      border: 0;
+      background: transparent;
+    }
+
+    .rv-quantity input {
+      width: 28px;
+      padding: 0;
+      border: 0;
+      outline: none;
+      background: transparent;
+      text-align: center;
+    }
+
+    .rv-add-button {
+      flex: 1;
+      min-height: 49px;
+      padding: 12px 18px;
+      border: 1px solid var(--rv-dark-rose);
+      background: var(--rv-dark-rose);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+
+    .rv-add-button:hover {
+      background: #745044;
+    }
+
+    .rv-wishlist-button {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      min-width: 50px;
+      border: 1px solid var(--rv-border);
+      background: var(--rv-white);
+      color: var(--rv-dark-rose);
+      font-size: 18px;
+    }
+
+    .rv-message {
+      min-height: 22px;
+      margin: 12px 0 0;
+      color: var(--rv-green);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .rv-service-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .rv-service {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--rv-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .rv-service i {
+      width: 17px;
+      margin-top: 2px;
+      color: var(--rv-dark-rose);
+    }
+
+    .rv-service strong {
+      display: block;
+      color: var(--rv-ink);
+      font-size: 12px;
+    }
+
+    .rv-note {
+      margin-top: 20px;
+      padding: 14px;
+      border-left: 3px solid var(--rv-rose);
+      background: #f0e7df;
+      color: #6e584e;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .rv-footer {
+      padding: 30px 5%;
+      border-top: 1px solid var(--rv-border);
+      background: var(--rv-white);
+      text-align: center;
+    }
+
+    .rv-footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      letter-spacing: 2px;
+      color: var(--rv-dark-rose);
+    }
+
+    .rv-footer p {
+      color: var(--rv-muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 800px) {
+      .rv-header-main { flex-wrap: wrap; padding: 18px 5%; }
+      .rv-menu-toggle { display: block; }
+      .rv-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        padding: 15px 0 5px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .rv-nav.active { display: flex; }
+      .rv-product-grid { grid-template-columns: 1fr; gap: 35px; }
+      .rv-product-info { padding-top: 0; }
+    }
+
+    @media (max-width: 430px) {
+      .rv-header-actions { gap: 12px; }
+      .rv-icon-link .rv-action-text { display: none; }
+      .rv-main { padding-top: 22px; }
+      .rv-purchase-row { gap: 8px; }
+      .rv-add-button { padding: 10px; font-size: 10px; }
+      .rv-detail-list { gap: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="rv-header">
+    <div class="rv-topline">
+      A CONSIDERED WORLD OF LUXURY & RARE FINDS
+    </div>
+
+    <div class="rv-header-main">
+      <button
+        class="rv-menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        type="button"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <a class="rv-logo" href="index.html">Rosévelle</a>
+
+      <nav class="rv-nav" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="index.html#categories">Collections</a>
+        <a href="wishlist.html">Wishlist</a>
+      </nav>
+
+      <div class="rv-header-actions">
+        <a class="rv-icon-link" href="wishlist.html" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="rv-action-text">Wishlist</span>
+        </a>
+
+        <a class="rv-icon-link" href="cart.html" aria-label="Shopping cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="rv-action-text">Bag</span>
+          <span class="count rv-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="rv-main">
+    <nav class="rv-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="shop.html">Shop</a>
+      <span>/</span>
+      <span aria-current="page">Product details</span>
+    </nav>
+
+    <section class="rv-product-grid">
+      <div class="rv-gallery">
+        <div class="rv-gallery-main">
+          <span class="rv-image-label">Curated Luxury</span>
+          <img
+            id="mainProductImage"
+            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"
+            alt="Elegant designer-style handbag"
+          >
+        </div>
+
+        <div class="rv-thumbnails" aria-label="Product image gallery">
+          <button class="rv-thumb active" type="button" aria-label="View product image 1" aria-pressed="true"
+            data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=250&q=75" alt="">
+          </button>
+
+          <button class="rv-thumb" type="button" aria-label="View product image 2" aria-pressed="false"
+            data-image="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85">
+            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=250&q=75" alt="">
+          </button>
+
+          <button class="rv-thumb" type="button" aria-label="View product image 3" aria-pressed="false"
+            data-image="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85">
+            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=250&q=75" alt="">
+          </button>
+
+          <button class="rv-thumb" type="button" aria-label="View product image 4" aria-pressed="false"
+            data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=250&q=75" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="rv-product-card product-card">
+        <div class="rv-product-info">
+          <p class="rv-eyebrow">The Collectors' Edit</p>
+
+          <h1 class="rv-product-title">The Signature Handbag</h1>
+
+          <p class="rv-subtitle">
+            A timeless accessory for a wardrobe built to last.
+            Discover understated elegance in every detail.
+          </p>
+
+          <div class="rv-price-row">
+            <span class="rv-price price">₹24,999</span>
+            <span class="rv-old-price">₹29,999</span>
+          </div>
+
+          <span class="rv-condition">Example listing · Condition to be confirmed</span>
+
+          <div class="rv-divider"></div>
+
+          <h2 class="rv-section-title">The Details</h2>
+
+          <p class="rv-description">
+            Refined lines and a versatile silhouette make this handbag
+            a beautiful addition to your collection. Pair it with
+            everyday essentials or an evening look.
+          </p>
+
+          <div class="rv-detail-list">
+            <div class="rv-detail">
+              <strong>Category</strong>
+              <span>Luxury handbags</span>
+            </div>
+            <div class="rv-detail">
+              <strong>Colour</strong>
+              <span>Classic neutral</span>
+            </div>
+            <div class="rv-detail">
+              <strong>Condition</strong>
+              <span>Confirm before purchase</span>
+            </div>
+            <div class="rv-detail">
+              <strong>Availability</strong>
+              <span>Demo product</span>
+            </div>
+          </div>
+
+          <div class="rv-divider"></div>
+
+          <label class="rv-section-title" for="quantity">Quantity</label>
+
+          <div class="rv-purchase-row">
+            <div class="rv-quantity">
+              <button type="button" id="decreaseQuantity" aria-label="Decrease quantity">−</button>
+              <input id="quantity" type="number" value="1" min="1" max="10" inputmode="numeric" aria-label="Quantity">
+              <button type="button" id="increaseQuantity" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button
+              type="button"
+              class="rv-add-button add-to-cart"
+              data-product-id="rosevelle-signature-handbag"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              Add to Bag
+            </button>
+
+            <button
+              type="button"
+              class="rv-wishlist-button wishlist-btn"
+              data-product-id="rosevelle-signature-handbag"
+              aria-label="Add to wishlist"
+              aria-pressed="false"
+            >
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+
+          <p id="productMessage" class="rv-message" role="status" aria-live="polite"></p>
+
+          <div class="rv-service-list">
+            <div class="rv-service">
+              <i class="fa-solid fa-gem"></i>
+              <div>
+                <strong>Authenticity information</strong>
+                Product authentication must be confirmed before making any authenticity guarantee.
+              </div>
+            </div>
+
+            <div class="rv-service">
+              <i class="fa-solid fa-truck"></i>
+              <div>
+                <strong>Delivery information</strong>
+                Shipping availability and delivery dates will be confirmed during checkout.
+              </div>
+            </div>
+
+            <div class="rv-service">
+              <i class="fa-solid fa-rotate-left"></i>
+              <div>
+                <strong>Returns and support</strong>
+                Return eligibility and support policies should be checked before purchase.
+              </div>
+            </div>
+          </div>
+
+          <div class="rv-note">
+            <strong>Demo product:</strong> This is sample catalogue content for your
+            website design. The listed price, condition, availability, imagery and
+            product details must be verified and updated before real sales.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rv-footer">
+    <a class="rv-footer-logo" href="index.html">Rosévelle</a>
+    <p>Discover the exceptional. Keep what is timeless.</p>
+    <p>© <span id="currentYear"></span> Rosévelle. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Product image gallery
+    const mainProductImage = document.getElementById("mainProductImage");
+    const thumbnailButtons = document.querySelectorAll(".rv-thumb");
+
+    thumbnailButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        mainProductImage.src = button.dataset.image;
+
+        thumbnailButtons.forEach(function (thumb) {
+          thumb.classList.remove("active");
+          thumb.setAttribute("aria-pressed", "false");
+        });
+
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+      });
+    });
+
+    // Quantity selector
+    const quantityInput = document.getElementById("quantity");
+    const decreaseButton = document.getElementById("decreaseQuantity");
+    const increaseButton = document.getElementById("increaseQuantity");
+
+    decreaseButton.addEventListener("click", function () {
+      const current = Number(quantityInput.value) || 1;
+      quantityInput.value = Math.max(1, current - 1);
+    });
+
+    increaseButton.addEventListener("click", function () {
+      const current = Number(quantityInput.value) || 1;
+      quantityInput.value = Math.min(10, current + 1);
+    });
+
+    quantityInput.addEventListener("change", function () {
+      let value = Number(quantityInput.value) || 1;
+      value = Math.max(1, Math.min(10, Math.floor(value)));
+      quantityInput.value = value;
+    });
+
+    // Use the selected quantity with the existing demo cart script.
+    const addButton = document.querySelector(".rv-add-button");
+    const productMessage = document.getElementById("productMessage");
+
+    addButton.addEventListener("click", function () {
+      const quantity = Number(quantityInput.value) || 1;
+      const productId = addButton.dataset.productId;
+
+      try {
+        const saved = JSON.parse(localStorage.getItem("rosevelleCart") || "[]");
+        const cart = Array.isArray(saved) ? saved : [];
+
+        let item = cart.find(function (product) {
+          return product.id === productId;
+        });
+
+        if (item) {
+          item.quantity = (Number(item.quantity) || 0) + quantity;
+        } else {
+          cart.push({
+            id: productId,
+            name: "The Signature Handbag",
+            price: "₹24,999",
+            quantity: quantity
+          });
+        }
+
+        localStorage.setItem("rosevelleCart", JSON.stringify(cart));
+
+        const count = document.querySelector(".rv-count");
+        if (count) {
+          count.textContent = cart.reduce(function (sum, product) {
+            return sum + (Number(product.quantity) || 0);
+          }, 0);
+        }
+
+        productMessage.textContent =
+          quantity + " item(s) added to your demo shopping bag.";
+      } catch (error) {
+        productMessage.textContent =
+          "Your browser could not save the demo cart. Please check browser storage settings.";
+      }
+    });
+
+    // Product-page wishlist feedback
+    const wishlistButton = document.querySelector(".rv-wishlist-button");
+
+    wishlistButton.addEventListener("click", function () {
+      const saved = wishlistButton.getAttribute("aria-pressed") === "true";
+      productMessage.textContent = saved
+        ? "Product removed from wishlist."
+        : "Product saved to your wishlist.";
+    });
+  </script>
+</body>
+</html>
